@@ -1,18 +1,21 @@
+from PIL import Image
 import pyautogui as pg
 import pyautogui
 import time
 import random
 
-TAI_X = 453
-TAI_Y = 587
-XIU_X = 802
-XIU_Y = 588
-MOT_NGHIN_X = 354
-MOT_NGHIN_Y = 718
-SUBMIT_X = 615
-SUBMIT_Y = 785
-CANCEL_X = 769
-CANCEL_Y = 785
+TAI_X = 583
+TAI_Y = 664
+XIU_X = 1094
+XIU_Y = 660
+MOT_NGHIN_X = 476
+MOT_NGHIN_Y = 836
+SUBMIT_X = 828
+SUBMIT_Y = 927
+CANCEL_X = 1049
+CANCEL_Y = 929
+KQUA_X = 1093
+KQUA_Y = 774
 
 MONEY = 5  # 5000 nghin moi lan cuoc
 TIME = 60  # 60s cuoc 1 lan
@@ -58,5 +61,36 @@ def FIND_TAI_XIU_SUBMIT_POSITION():
         print(ps)
 
 
-FIND_TAI_XIU_SUBMIT_POSITION()
-# START()
+# SreenShot
+myScreenshot = pyautogui.screenshot()
+myScreenshot.save(r'E:\Tool\Tai-Xiu\Tai-Xiu.png')
+
+
+def rgb_of_pixel(img_path, x, y):
+    im = Image.open(img_path).convert('RGB')
+    r, g, b = im.getpixel((x, y))
+    a = (r, g, b)
+    return a
+
+
+dem = 5
+check = True
+img = "Tai-Xiu.png"
+# print(rgb_of_pixel(img, KQUA_X, KQUA_Y))
+
+if((81, 77, 134) == rgb_of_pixel(img, KQUA_X, KQUA_Y)):
+    dem = dem+1
+    if check == False:
+        dem = 0
+    check = True
+else:
+    dem = dem+1
+    if check == True:
+        dem = 0
+    check = False
+
+if(dem >= 5):
+    START()
+else:
+    time.sleep(TIME)
+# FIND_TAI_XIU_SUBMIT_POSITION()
