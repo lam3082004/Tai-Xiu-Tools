@@ -4,16 +4,16 @@ import pyautogui
 import time
 import os
 
-TAI_X = 585
-TAI_Y = 679
-XIU_X = 1078
-XIU_Y = 686
-MOT_NGHIN_X = 477
-MOT_NGHIN_Y = 850
-SUBMIT_X = 802
-SUBMIT_Y = 931
-KQUA_X = 1064
-KQUA_Y = 771
+TAI_X = 582
+TAI_Y = 682
+XIU_X = 1077
+XIU_Y = 680
+MOT_NGHIN_X = 468
+MOT_NGHIN_Y = 866
+SUBMIT_X = 830
+SUBMIT_Y = 954
+KQUA_X = 1065
+KQUA_Y = 773
 MONEY = 1
 
 
@@ -56,7 +56,7 @@ def FIND_RGB_COLOR():
         img = "Tai-Xiu.png"
 
         print(rgb_of_pixel(img, KQUA_X, KQUA_Y))
-        time.sleep(5)
+        time.sleep(60)
         file_path = './Tai-Xiu.png'
         os.remove(file_path)
 
@@ -76,7 +76,7 @@ def START():
             return a
 
         img = "Tai-Xiu.png"
-        if rgb_of_pixel(img, KQUA_X, KQUA_Y)[0] == 212 and rgb_of_pixel(img, KQUA_X, KQUA_Y)[1] == 255 and rgb_of_pixel(img, KQUA_X, KQUA_Y)[2] == 255:
+        if rgb_of_pixel(img, KQUA_X, KQUA_Y)[0] == 225 and rgb_of_pixel(img, KQUA_X, KQUA_Y)[1] == 255 and rgb_of_pixel(img, KQUA_X, KQUA_Y)[2] == 255:
             dem = dem+1
             if check == 1:
                 dem = 1
@@ -97,25 +97,24 @@ def START():
         else:
             print(dem, 'XỈU')
 
-        if(dem == 7):
+        if(dem == 9):
             dem = 1
         if(dem >= 4):
-            TIEN_CUOC = pow(2, dem-3) * MONEY
             if check == 1:
                 pick = 0
-                TAI(TIEN_CUOC)
-                print('Đã chọn TÀI', TIEN_CUOC, 'k')
+                TAI(pow(2, dem-4) * MONEY)
+                print('Đã chọn TÀI', pow(2, dem-4) * MONEY, 'k')
             else:
                 pick = 1
-                XIU(TIEN_CUOC)
-                print('Đã chọn XỈU', TIEN_CUOC, 'k')
+                XIU(pow(2, dem-4) * MONEY)
+                print('Đã chọn XỈU', pow(2, dem-4) * MONEY, 'k')
         else:
             pick = -1
 
         if pick == -1:
-            time.sleep(68.2)
+            time.sleep(68.8)
         else:
-            time.sleep(67.2)
+            time.sleep(67.8)
         file_path = './Tai-Xiu.png'
         os.remove(file_path)
 

@@ -14,8 +14,7 @@ SUBMIT_X = 651
 SUBMIT_Y = 895
 KQUA_X = 969
 KQUA_Y = 696
-
-MONEY = 1  # 5000 nghin moi lan cuoc
+MONEY = 1
 
 
 def TAI(money):
@@ -56,21 +55,6 @@ def FIND_RGB_COLOR():
         time.sleep(60)
         file_path = './Tai-Xiu.png'
         os.remove(file_path)
-
-
-# def START():
-#     while True:
-#         time.sleep(TIME)
-#         TAI_XIU_RANDOM = random.randint(1, 100)
-#         ps = pg.position()
-#         print(ps)
-#         print(TAI_XIU_RANDOM)
-#         if(TAI_XIU_RANDOM % 2 == 0):
-#             TAI(MONEY)
-#             print('tai an cut 5k')
-#         else:
-#             print('xiu an cut 5k')
-#             XIU(MONEY)
 
 
 def START():
