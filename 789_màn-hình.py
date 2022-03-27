@@ -4,21 +4,16 @@ import pyautogui
 import time
 import os
 
-TAI_X = 585
-TAI_Y = 679
-XIU_X = 1078
-XIU_Y = 686
-MOT_NGHIN_X = 477
-MOT_NGHIN_Y = 850
-SUBMIT_X = 802
+TAI_X = 577
+TAI_Y = 670
+XIU_X = 1076
+XIU_Y = 669
+MOT_NGHIN_X = 476
+MOT_NGHIN_Y = 855
+SUBMIT_X = 817
 SUBMIT_Y = 931
-KQUA_X = 1063
-KQUA_Y = 770
-
-TIENCUOC_1 = 4
-TIENCUOC_1 = 6
-TIENCUOC_1 = 12
-TIENCUOC_1 = 24
+KQUA_X = 1062
+KQUA_Y = 764
 
 
 def TAI(money):
@@ -106,7 +101,7 @@ def START():
         check3 = check2
         check2 = check1
         check1 = check
-        if rgb_of_pixel(img, KQUA_X, KQUA_Y)[0] == 206 and rgb_of_pixel(img, KQUA_X, KQUA_Y)[1] == 255 and rgb_of_pixel(img, KQUA_X, KQUA_Y)[2] == 255:
+        if rgb_of_pixel(img, KQUA_X, KQUA_Y)[0] == 214 and rgb_of_pixel(img, KQUA_X, KQUA_Y)[1] == 254 and rgb_of_pixel(img, KQUA_X, KQUA_Y)[2] == 255:
             dem = dem+1
             if check == 1:
                 dem = 1
@@ -201,8 +196,8 @@ def START():
             dem_1_2 = 4
         if(dem == 11):
             dem = 7
-        if dem_2_2 == 7:
-            dem_2_2 = 5
+        if dem_2_2 == 6:
+            dem_2_2 = 4
         if dem_3_3 == 4:
             dem_3_3 = 3
         if(dem >= 7):
@@ -274,7 +269,7 @@ def START():
                     XIU(24)
                     print('Đã chọn XỈU', 24, 'k')
             else:
-                if dem_2_2 == 5:
+                if dem_2_2 == 4:
                     if check == 0 and dem_1_1 == 0:
                         pick0_4 = pick0_4+1
                         TAI(4)
@@ -291,7 +286,7 @@ def START():
                         pick0_6 = pick0_6+1
                         TAI(6)
                         print('Đã chọn TÀI', 6, 'k')
-                elif dem_2_2 == 6:
+                elif dem_2_2 == 5:
                     if check == 0 and dem_1_1 == 0:
                         pick0_12 = pick0_12+1
                         TAI(12)
